@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaWars.UI", "PizzaWars.UI\PizzaWars.UI.csproj", "{3C093C20-7C31-4046-915C-FC0D4E7D4D09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaWars.UI", "PizzaWars.UI\PizzaWars.UI.csproj", "{3C093C20-7C31-4046-915C-FC0D4E7D4D09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaWars.App", "PizzaWars.App\PizzaWars.App.csproj", "{3AEFBB42-DE91-4057-B903-33F1C89B706C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaWars.Data", "PizzaWars.Data\PizzaWars.Data.csproj", "{1370B65C-CAA3-40EB-A680-80CD7333618A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{3C093C20-7C31-4046-915C-FC0D4E7D4D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C093C20-7C31-4046-915C-FC0D4E7D4D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C093C20-7C31-4046-915C-FC0D4E7D4D09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AEFBB42-DE91-4057-B903-33F1C89B706C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AEFBB42-DE91-4057-B903-33F1C89B706C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AEFBB42-DE91-4057-B903-33F1C89B706C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AEFBB42-DE91-4057-B903-33F1C89B706C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1370B65C-CAA3-40EB-A680-80CD7333618A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1370B65C-CAA3-40EB-A680-80CD7333618A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1370B65C-CAA3-40EB-A680-80CD7333618A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1370B65C-CAA3-40EB-A680-80CD7333618A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
