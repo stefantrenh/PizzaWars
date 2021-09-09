@@ -2,7 +2,11 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div id="app">
+
+    {{pizzas}}
+
+    <img v-bind:src="pizzaUrl.image" class="img-fluid"/>
+    <img v-bind:src="pizzaUrl2.image" class="img-fluid"/>
+
 </div>
