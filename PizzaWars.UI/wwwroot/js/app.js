@@ -4,8 +4,8 @@
         data: {
             pizzas: [],
             pizzaUrl: "",
-            pizzaUrl2: ""
-
+            pizzaUrl2: "",
+            ranNumb1: Math.floor(Math.random() * 4),
         },
         mounted() {
             this.getData();
@@ -24,7 +24,7 @@
                     });
             },
 
-                getPizzaUrl() {
+            getPizzaUrl() {
                     axios.get('https://foodish-api.herokuapp.com/api/images/pizza')
                         .then(res => {
                             this.pizzaUrl = res.data;

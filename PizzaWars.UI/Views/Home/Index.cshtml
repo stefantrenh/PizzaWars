@@ -1,12 +1,24 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+
 }
 
 <div id="app">
 
-    {{pizzas}}
-
-    <img v-bind:src="pizzaUrl.image" class="img-fluid"/>
-    <img v-bind:src="pizzaUrl2.image" class="img-fluid"/>
-
+    @{
+        int rnd1 = new Random().Next(0, 4);
+        int rnd2 = new Random().Next(0, 4);
+     }
+    <div class="container">
+        <div class="row">
+            <div v-for="pizza in pizzas" class="col-6">
+                    <img v-bind:src="pizzaUrl.image" class="img-fluid" />
+                    <h2>{{pizza.name}}</h2>
+                    <li v-for="toppings in pizza.toppings">
+                        {{toppings}}
+                    </li>
+                    <h4>Rating: {{pizza.hypeLevel}}</h4>
+            </div>
+        </div>
+    </div>
 </div>

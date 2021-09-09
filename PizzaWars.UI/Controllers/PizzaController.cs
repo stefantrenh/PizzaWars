@@ -22,8 +22,6 @@ namespace PizzaWars.UI.Controllers
 
             pizzas.Add(new PizzaModel{ Id = 1, HypeLevel = randomNumb.Next(1,11), Name = "Hawai" , Toppings = new List<string>() { "Pine Apple", "Cheese", "Ham" } });
             pizzas.Add(new PizzaModel { Id = 2, HypeLevel = randomNumb.Next(1, 11), Name = "Kebab", Toppings = new List<string>() { "Tomato", "Cheese", "Pork" } });
-            pizzas.Add(new PizzaModel { Id = 3, HypeLevel = randomNumb.Next(1, 11), Name = "Quattro", Toppings = new List<string>() { "Shrimps", "Mushrooms", "Ham", "Clams" } });
-            pizzas.Add(new PizzaModel { Id = 4, HypeLevel = randomNumb.Next(1, 11), Name = "Tuna", Toppings = new List<string>() { "Tuna", "Cheese", "Tomato" } });
 
             return pizzas;
         }

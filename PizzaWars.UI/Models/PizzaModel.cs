@@ -11,5 +11,6 @@ namespace PizzaWars.UI.Models
         public string Name { get; set; }
         public List<string> Toppings { get; set; }
         public int HypeLevel { get; set; }
+        public string Url { get; set; }
     }
 }
