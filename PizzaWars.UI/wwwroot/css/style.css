@@ -1,0 +1,12 @@
+﻿body {
+    background-color: #1a1a1a;
+}
+
+.pizza_winner {
+height: 25rem;
+width: 25rem;
+display: flex;
+justify-content: center;
+align-content: center;
+color:white;
+}

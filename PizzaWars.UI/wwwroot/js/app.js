@@ -1,50 +1,52 @@
-﻿let app = new Vue
+﻿
+let app = new Vue
     ({
         el: '#app',
         data: {
             pizzas: [],
             pizzaUrl: "",
-            pizzaUrl2: "",
-            ranNumb1: Math.floor(Math.random() * 4),
+            pizzaListUrl: [],
+            pizzaListLenght: 0,
+            counter: 0,
+            toggleTopping: false,
+            extraToppings: [],
+            
         },
-        mounted() {
-            this.getData();
-            this.getPizzaUrl();
-            this.getPizzaUrl2();
+        async mounted() {
+            await this.getData();
+            console.log(this.pizzas.length);
+            for (let i = 0; i < this.pizzas.length; i++) {
+              await this.getPizzaUrl();
+            }
+/*            console.log(this.pizzaListUrl);*/
         },
         methods: {
-            getData() {
-                axios.get('/Pizza/PizzaLists')
-                    .then(res => {
-                        this.pizzas = res.data;
-                        console.log(this.pizzas);
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    });
+           async getData() {
+                const pizza = await axios.get('/Pizza/PizzaLists')
+ /*           console.log(pizza);*/
+                this.pizzas = pizza.data
             },
+           async getPizzaUrl() {
+               try {
+                   const pizzaImg = await axios.get('https://foodish-api.herokuapp.com/api/images/pizza')
+                   console.log(pizzaImg.data);
+                   this.pizzaUrl = pizzaImg.data;
+                   this.pizzaListUrl.push(this.pizzaUrl.image);
+               } catch (e) {
+                   console.log(e);
+               }
+               this.counter++;
+            },
+            deletePizza(name) {
+                this.pizzas = this.pizzas.filter(function (obj) {
+                    return obj.name !== name;
+                });
+                this.counter--;
+                console.log(this.counter);
+            },
+            toogleAddTopping() {
+                this.toggleTopping = !this.toggleTopping
+            }
 
-            getPizzaUrl() {
-                    axios.get('https://foodish-api.herokuapp.com/api/images/pizza')
-                        .then(res => {
-                            this.pizzaUrl = res.data;
-                            
-                            console.log(this.pizzaUrl);
-                        })
-                        .catch(err => {
-                            console.log(err)
-                        });
-            },
-            getPizzaUrl2() {
-                axios.get('https://foodish-api.herokuapp.com/api/images/pizza')
-                    .then(res => {
-                        this.pizzaUrl2 = res.data;
-                        console.log(this.pizzaUrl);
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    });
-            },
-            
         }
     })

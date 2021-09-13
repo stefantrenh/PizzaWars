@@ -3,22 +3,62 @@
 
 }
 
-<div id="app">
 
-    @{
-        int rnd1 = new Random().Next(0, 4);
-        int rnd2 = new Random().Next(0, 4);
-     }
+<div id="app">
+    <h1 v-if="counter > 2" class="text-center mb-5 mt-2 text-white"> There is only one winner!</h1>
     <div class="container">
         <div class="row">
-            <div v-for="pizza in pizzas" class="col-6">
-                    <img v-bind:src="pizzaUrl.image" class="img-fluid" />
-                    <h2>{{pizza.name}}</h2>
-                    <li v-for="toppings in pizza.toppings">
-                        {{toppings}}
-                    </li>
-                    <h4>Rating: {{pizza.hypeLevel}}</h4>
+            <div v-for="pizza in pizzas" class="col-sm-6">
+                <div class="card mb-5" style="width: 25rem;">
+                    <img v-bind:src="pizzaListUrl[pizza.id]" width="300" height="300" class="card-img-top">
+                    <div class="card-body">
+                        <h2>{{pizza.name}}</h2>
+                        <p v-for="toppings in pizza.toppings" style="margin: 0">
+                            {{toppings}}
+                        </p>
+                        <div v-for="(toppings,index) in extraToppings">
+                            {{toppings}}
+                        </div>
+                        <div v-if="toggleTopping">
+                            <input type="checkbox" id="jalapeno" value="Jalapeno" v-model="extraToppings">
+                            <label for="jalapeno">Jalapeno</label>
+                            <input type="checkbox" id="mozzerella" value="Mozzerella" v-model="extraToppings">
+                            <label for="mozzerella">Mozzerella</label>
+                            <input type="checkbox" id="squash" value="Squash" v-model="extraToppings">
+                            <label for="squash">Squash</label>
+                        </div>
+                        <h4>Rating: {{pizza.hypeLevel}}</h4>
+                        <i><h5 v-if="pizza.hypeLevel == 10">It´s a dope Pizza!</h5></i>
+                        <button class="btn btn-info" @@click="toogleAddTopping()"><span v-if="!toggleTopping">Add Toppings</span><span v-if="toggleTopping">Hide</span></button>
+                        <button class="btn btn-danger" @@click="deletePizza(pizza.name)">Get Rid of this Pizza!</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6" v-if="counter < 2">
+                <div style="color: white; width: 25rem; height: 25rem;">
+                    <h1>Winner Winner Pizza Dinner!</h1>
+                    <div v-for="pizza in pizzas">
+                        <img src="~/images/PizzaMan.svg" height="200" width="200"/>
+                        <h2>{{pizza.name.toUpperCase()}} Is the Sinner!</h2>
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-success mt-2 mb-2">Click Here to Generate New Pizzas</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+
+
+
+    <!-- <div class="row">
+     <div v-for="pizza in pizzas" class="col-6">
+             <img v-bind:src="pizzaUrl.image" class="img-fluid" />
+             <h2>{{pizza.name}}</h2>
+             <p>{{pizza.url}}</p>
+             <li v-for="toppings in pizza.toppings">
+                 {{toppings}}
+             </li>
+             <h4>Rating: {{pizza.hypeLevel}}</h4>
+     </div>
+
+    </div> -->
